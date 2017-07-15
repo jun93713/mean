@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index</title>
+</head>
+<body>
+    <h1>here are all the pigs</h1>
+    <table border="1px">
+        <tr>
+            <th>ID</th>
+            <th>name</th>
+            <th>age</th>
+            <th>color</th>
+            <th>action</th>
+        </tr>
+        <% for (var i in pigs) { %>
+        <tr>
+            <td><a href="/pigs/<%= pigs[i]._id %>"><%= pigs[i]._id %></a></td>
+            <td><%= pigs[i].name %></td>
+            <td><%= pigs[i].age %></td>
+            <td><%= pigs[i].color %></td>
+            <td>
+                <form action="/pigs/edit/<%= pigs[i]._id %>" method="get">
+                    <input type="submit" value="edit">
+                </form>
+                <form action="/pigs/destroy/<%= pigs[i]._id %>" method="post">
+                    <input type="submit" value="remove">
+                </form>
+            </td>
+        </tr>
+
+        <% } %>
+
+        <a href="/pigs/new">creat new pig</a>
+    </table>
+</body>
+</html>

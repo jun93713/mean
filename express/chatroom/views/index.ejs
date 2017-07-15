@@ -1,0 +1,75 @@
+<html>
+<head>
+    <title></title>
+    <style>
+        #userlist{
+            width: 100px;
+            overflow: auto;
+            height: 500px;
+            display: inline-block;
+            border: 1px solid black;
+        }
+        #chatboard{
+            width: 500px;
+            height: 500px;
+            display: inline-block;
+            border: 1px solid black;
+            vertical-align: top;
+        }
+        #chatbox{
+            width: 480px;
+            height: 380px;
+            overflow: auto;
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function (){
+            // this triggers the connection event in our server!
+            var socket = io.connect();
+            // add new user into chatroom
+            var retVal = prompt("Enter your name to join chatroom: ");
+            socket.emit( "got_a_new_user", {name: retVal});
+            socket.on( 'new_user', function (data){
+                document.getElementById('users').innerHTML = '';
+                for(var i in data.users){
+                    document.getElementById('users').innerHTML += `<li>${data.users[i]}</li>`;
+                }
+            });
+            //send the newchat to server
+            $('form').submit(function (e) {
+                e.preventDefault();
+                socket.emit('newchat', {chat: $('#chat').val()});
+                $('#chat').val('')
+            });
+            //get the chats
+            socket.on('allchats', function (data) {
+                console.log(data.chats);
+                document.getElementById('chatbox').innerHTML = '';
+                for(var j in data.chats){
+                    document.getElementById('chatbox').innerHTML += `<p>${data.chats[j][0]}: ${data.chats[j][1]}</p>`;
+                };
+                document.getElementById('chatbox').scrollTop = document.getElementById('chatbox').scrollHeight;
+            })
+        });
+
+    </script>
+</head>
+<body>
+    <div id="userlist">
+        <ul id="users">
+        </ul>
+    </div>
+    <div id="chatboard">
+        <h3>Conversation Board</h3>
+        <div id="chatbox"></div>
+        <br>
+        <form action="">
+            <input type="text" placeholder="Enter your message here" id="chat">
+            <input type="submit" value="send">
+        </form>
+
+    </div>
+</body>
+</html>

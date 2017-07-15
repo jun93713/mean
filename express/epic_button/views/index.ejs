@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The great button game</title>
+    <style>
+        #lalala{
+            color: white;
+            background-color: mediumblue;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        #hehehe{
+            color: white;
+            background-color: red;
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function (){
+            // this triggers the connection event in our server!
+            var socket = io.connect();
+            // we'll write all the socket stuff after the above line!
+            $('#lalala').click(function (){
+                socket.emit( "button_clicked");
+            });
+            $('#hehehe').click(function (){
+                socket.emit( "reset");
+            });
+            socket.on( 'server_response', function (data){
+                document.getElementById('meow').innerHTML = data.count
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <h1>The button has been pushed <span id="meow"></span> time(s)</h1>
+    <br><br>
+    <h1>Push the button to update the count!</h1>
+    <button type="button" id="lalala">Push the epic button</button>
+    <br><br><br>
+    <button type="button" id="hehehe">Reset count</button>
+</body>
+</html>

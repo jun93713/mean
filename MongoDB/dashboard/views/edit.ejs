@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>edit</title>
+</head>
+<body>
+    <form action="/pigs/<%= pig[0]._id %>" method="post">
+        <p>id: <%= pig[0]._id %></p>
+        <p>name: <input type="text" name="name" value="<%= pig[0].name %>"></p>
+        <p>age: <input type="number" name="age" value="<%= pig[0].age %>"></p>
+        <p>color: <input type="text" name="color" value="<%= pig[0].color %>"></p>
+        <input type="submit" value="finish edit">
+    </form>
+</body>
+</html>

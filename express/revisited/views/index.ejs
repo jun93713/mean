@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Survey Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+//        $(document).ready(function (){
+//            // this triggers the connection event in our server!
+//
+//            var socket = io.connect();
+//            // we'll write all the socket stuff after the above line!
+//            $('#lalala').submit(function () {
+//                console.log('ag5r');
+//                socket.emit('posting_form', {
+//                    name: $('#name').val(),
+//                    loca: $('#location').val(),
+//                    lang: $('#lang').val(),
+//                    comment: $('#comment').val()
+//                })
+//            });
+//            socket.on('updated_message', function (data) {
+//                console.log('afssg');
+//                $('#hehe').append("asdadads").show();
+//            })
+//        });
+
+        var socket = io.connect();
+        $(function () {
+            $('#lalala').submit(function (e) {
+                e.preventDefault();
+                socket.emit('posting_form', {
+                    name: $('#name').val(),
+                    loca: $('#location').val(),
+                    lang: $('#lang').val(),
+                    comment: $('#comment').val()
+                });
+                $('#name').val('');
+                $('#comment').val('')
+//                return false;
+            });
+
+            socket.on('updated_message', function (data) {
+                document.getElementById('hehe').innerHTML = data.info;
+            })
+        })
+
+    </script>
+</head>
+<body>
+
+
+<div id="hehe"></div>
+
+
+<form action="" id="lalala">
+    <p>Your Name: <input type="text" id="name"></p>
+    <p>Dojo Location:
+        <select id="location">
+            <option value="San Jose">San Jose</option>
+            <option value="Seattle">Seattle</option>
+            <option value="LA">LA</option>
+            <option value="Houston">Houston</option>
+            <option value="Berkeley">Berkeley</option>
+        </select>
+    </p>
+    <p>Favorite Language:
+        <select id="lang">
+            <option value="JavaScript">JavaScript</option>
+            <option value="Python">Python</option>
+            <option value="Java">Java</option>
+        </select>
+    </p>
+    <p>Comment (optional):
+        <textarea rows="5" cols="50" id="comment"></textarea>
+    </p>
+    <input type="submit" value="Submit">
+
+</form>
+</body>
+</html>
