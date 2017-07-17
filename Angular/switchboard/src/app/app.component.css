@@ -1,0 +1,16 @@
+.on{
+    background-color: red;
+    height: 50px;
+    width: 50px;
+}
+.off{
+    background-color: green;
+    height: 50px;
+    width: 50px;
+}
+.box{
+    background-color: mediumpurple;
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid black;
+}
