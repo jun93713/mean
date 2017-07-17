@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
+
     title = 'Retro Barcode Generator';
     colors = function () {
         var list = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure",

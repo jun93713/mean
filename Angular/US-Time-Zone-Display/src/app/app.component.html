@@ -1,0 +1,12 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<h1>{{title}}</h1>
+<button (click)="clear();switch[0]=!switch[0]"  [ngClass]="{ 'on': switch[0] }">PST</button>
+<button (click)="clear();switch[1]=!switch[1]"  [ngClass]="{ 'on': switch[1] }">MST</button>
+<button (click)="clear();switch[2]=!switch[2]"  [ngClass]="{ 'on': switch[2] }">CST</button>
+<button (click)="clear();switch[3]=!switch[3]"  [ngClass]="{ 'on': switch[3] }">EST</button>
+<button (click)="clear()">clear</button>
+
+<h1 *ngIf="switch[0]">{{date| date:'medium' : 'PST'}}</h1>
+<h1 *ngIf="switch[1]">{{date| date:'medium' : 'MST'}}</h1>
+<h1 *ngIf="switch[2]">{{date| date:'medium' : 'CST'}}</h1>
+<h1 *ngIf="switch[3]">{{date| date:'medium' : 'EST'}}</h1>
