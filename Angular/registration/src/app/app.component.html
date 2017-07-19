@@ -1,0 +1,89 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<h1>{{title}}</h1>
+<!--this div is to display the info-->
+<div>
+
+</div>
+
+<form name="myForm">
+  <h3>Account Information</h3>
+  <!--firstname-->
+  <div>
+    <label for="firstname">
+      *First Name:
+      <input type="text"
+             id="firstname"
+             name="firstname"
+             required
+             [(ngModel)]="user.firstname"
+             #firstname="ngModel"
+      />
+    </label>
+    <span *ngIf="firstname.errors" class="errmsg">
+      <span [hidden]="!firstname.errors.required">
+        First name is required!
+      </span>
+    </span>
+  </div>
+  <!--lastname-->
+  <div>
+    <label for="lastname">
+      *Last Name:
+      <input type="text"
+             id="lastname"
+             name="lastnameme"
+             required
+             [(ngModel)]="user.lastname"
+             #lastname="ngModel"
+      />
+    </label>
+    <span *ngIf="lastname.errors" class="errmsg">
+      <span [hidden]="!lastname.errors.required">
+        Last name is required!
+      </span>
+    </span>
+  </div>
+  <!--email-->
+  <div>
+    <label for="email">
+      *Email:
+      <input type="text"
+             id="email"
+             name="email"
+             required
+             [(ngModel)]="user.email"
+             #email="ngModel"
+      />
+    </label>
+    <span *ngIf="email.errors" class="errmsg">
+      <span [hidden]="!email.errors.required">
+        Email is required!
+      </span>
+    </span>
+  </div>
+  <!--password-->
+  <div>
+    <label for="password">
+      *Password:
+      <input type="text"
+             id="password"
+             name="password"
+             required
+             minlength="16"
+             [(ngModel)]="user.password"
+             #password="ngModel"
+      />
+    </label>
+    <span *ngIf="password.errors" class="errmsg">
+      <span [hidden]="!password.errors.required">
+        Password is required!
+      </span>
+      <span [hidden]="!password.errors.minlength">
+        Password must be at least 16 charactors long!
+      </span>
+    </span>
+  </div>
+</form>
+
+
+
