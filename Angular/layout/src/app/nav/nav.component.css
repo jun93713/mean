@@ -1,0 +1,14 @@
+div{
+    background-color: #1c94c4;
+    width: 200px;
+    height: 400px;
+    display: inline-block;
+    padding-top: 50px;
+    vertical-align: top;
+}
+div button{
+    display: inline-block;
+    width: 150px;
+    padding: 5px;
+    margin: 10px 25px;
+}
