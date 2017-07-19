@@ -1,0 +1,7 @@
+<h4>SuperSaiyanFour</h4>
+<p>
+  PowerLevel: {{power | json}}
+</p>
+<p *ngIf="power > 9000 && power <= 20000"> Over 9000!</p>
+<p *ngIf="power > 20000 && power < 50000"> Superlative!</p>
+<p *ngIf="power == 50000"> The One!</p>

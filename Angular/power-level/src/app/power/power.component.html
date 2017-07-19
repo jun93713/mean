@@ -1,0 +1,16 @@
+<div>
+  <form (submit)="gotpower($event)">
+    <label for="power">Initial Power Level</label>
+    <input type="number" min="1" max="100" id="power" name="power" [(ngModel)]="powerlevel" placeholder="1">
+    <input type="submit" value="Calculate Powers">
+  </form>
+  <br><br><br>
+  <div>
+    <app-human [power] = "power" class="info"></app-human>
+    <app-saiyan [power] = "power" class="info"></app-saiyan>
+    <app-supersaiyan [power] = "power" class="info"></app-supersaiyan>
+    <app-supersaiyantwo [power] = "power" class="info"></app-supersaiyantwo>
+    <app-supersaiyanthree [power] = "power" class="info"></app-supersaiyanthree>
+    <app-supersaiyanfour [power] = "power" class="info"></app-supersaiyanfour>
+  </div>
+</div>
