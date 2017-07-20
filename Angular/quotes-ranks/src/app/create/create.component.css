@@ -1,0 +1,9 @@
+div form{
+    display: inline-block;
+}
+.validation{
+    display: inline-block;
+    vertical-align: top;
+    color: red;
+    margin-left: 20px;
+}

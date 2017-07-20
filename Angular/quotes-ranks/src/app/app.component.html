@@ -1,0 +1,4 @@
+<div>
+  <app-create (newQuote)="addNewQuote($event)"></app-create>
+  <app-list [quotelist]="quotes" (deletequote)="removeQuote($event)"></app-list>
+</div>
