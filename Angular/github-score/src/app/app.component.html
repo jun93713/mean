@@ -1,13 +1,21 @@
 <div>
   <div>
     <h1>GitHub Score</h1>
-    <form>
-      <p>GitHub Username: <input type="text" name="username" [(ngModel)]="username" #username="ngModel" required></p>
-      <button [disabled]="!username.valid">Calculate my Github Score</button>
+    <form (submit)="getGitHubUser()">
+      <p>GitHub Username: <input type="text" name="username" [(ngModel)]="username" #usernam="ngModel" required></p>
+      <button type="submit" [disabled]="!usernam.valid">Calculate my Github Score</button>
     </form>
   </div>
 
-  <div>
-
+  <div *ngIf="submited">
+    <h1 *ngIf="!userExist">User does not exit!!!!</h1>
+    <div *ngIf="userExist">
+      <h1>Your Score: {{score}}</h1>
+      <h3 *ngIf="score < 20" style="color: red">Need Work!</h3>
+      <h3 *ngIf="score < 50 && score > 19" style="color: orange">A decent start!</h3>
+      <h3 *ngIf="score < 100 && score > 49" style="color: black">Doing good!</h3>
+      <h3 *ngIf="score < 200 && score > 99" style="color: green">Great Job!</h3>
+      <h3 *ngIf="score >= 200" style="color: blue">Github Elite!</h3>
+    </div>
   </div>
 </div>

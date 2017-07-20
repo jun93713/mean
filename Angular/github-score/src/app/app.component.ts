@@ -7,6 +7,22 @@ import { HttpService } from './http.service';
 })
 export class AppComponent {
   username = null;
-
+  user = null;
+  score = null;
+  userExist = null;
+  submited = false;
   constructor(private _httpService: HttpService){}
+
+  getGitHubUser(){
+    this.submited = true;
+    this._httpService.retriveGithubUser(this.username)
+      .then( (user) => {
+        this.userExist = true;
+        this.score = user.followers + user.public_repos
+      })
+        .catch( err => {
+          this.userExist = false;
+      })
+
+  }
 }
