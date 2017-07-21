@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import { ProductService} from "../product.service"
+import { ProductService} from "../product.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-product-new',
@@ -18,7 +19,8 @@ export class ProductNewComponent implements OnInit {
   subscription: Subscription;
   products = [];
 
-  constructor(private _productService: ProductService) {
+  constructor(private _productService: ProductService,
+              private _router: Router) {
       this.subscription = this._productService.subject.subscribe(
           (products) => {this.products = products},
           (err) => {},
@@ -33,10 +35,6 @@ export class ProductNewComponent implements OnInit {
   onSubmit(){
     this.products.push(this.product);
     this._productService.updateProducts(this.products);
-    this.product = {
-        title: '',
-        price: '',
-        url: ''
-    };
+    this._router.navigate(['/product'])
   }
 }

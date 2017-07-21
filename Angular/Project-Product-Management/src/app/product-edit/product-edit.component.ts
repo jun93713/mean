@@ -14,7 +14,8 @@ export class ProductEditComponent implements OnInit {
   products = null;
   product = null;
   constructor(private _productService: ProductService,
-              private _route: ActivatedRoute) {
+              private _route: ActivatedRoute,
+              private _router: Router) {
       this._route.params.subscribe((param)=>{
         this.id = param.id;
       });
@@ -31,6 +32,7 @@ export class ProductEditComponent implements OnInit {
 
   edit(){
       this.products[this.id] = this.product;
-      this._productService.updateProducts(this.products)
+      this._productService.updateProducts(this.products);
+      this._router.navigate(['/product']);
   }
 }
