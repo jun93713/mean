@@ -1,0 +1,35 @@
+.wrapper{
+    width: 596px;
+    height: 400px;
+    border: 1px solid black;
+    overflow: auto;
+}
+.item{
+    width: 275px;
+    height: 290px;
+    padding: 10px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+.item h1, p{
+    margin: 0px;
+    text-align: left;
+    margin-left: 20px;
+}
+.image{
+    width: 250px;
+    height: 180px;
+}
+.editbutton{
+    background-color: orange;
+    width: 250px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.deletebutton{
+    background-color: red;
+    width: 250px;
+    border-radius: 5px;
+    color: white;
+}

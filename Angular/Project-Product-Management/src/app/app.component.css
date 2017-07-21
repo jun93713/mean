@@ -1,0 +1,18 @@
+.vl{
+    margin: 10px;
+    font-size: xx-large;
+    display: inline-block;
+    vertical-align: middle;
+}
+a{
+    display: inline-block;
+    vertical-align: middle;
+    color: dodgerblue;
+}
+.box{
+    border: 1px solid black;
+    width: 600px;
+    height: 500px;
+    background-color: lightskyblue;
+    padding: 10px;
+}

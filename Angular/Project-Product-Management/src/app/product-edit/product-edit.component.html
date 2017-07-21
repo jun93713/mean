@@ -1,0 +1,7 @@
+<h1>Edit Product</h1>
+<form #formData="ngForm">
+    <h3>Title <input type="text" name="title" [(ngModel)]="product.title" required [value]="product.title" minlength="4"></h3>
+    <h3>Price <input type="number" name="price" [(ngModel)]="product.price" required [value]="product.price"></h3>
+    <h3>Image Url <input type="text" name="url" [(ngModel)]="product.url" required [value]="product.url"></h3>
+    <button [disabled]="!formData.valid" (click)="edit()" [routerLink]="['/product']" >Edit</button>
+</form>
