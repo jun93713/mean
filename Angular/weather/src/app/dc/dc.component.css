@@ -1,0 +1,16 @@
+.wrapper{
+    text-align: center;
+    border: 1px solid black;
+    width: 968px;
+    height: 600px;
+}
+.temperature{
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;
+}
+.image{
+    display: inline-block;
+    vertical-align: top;
+    width: 650px;
+}

@@ -1,0 +1,15 @@
+.vl{
+    margin: 10px;
+    font-size: xx-large;
+    display: inline-block;
+    vertical-align: middle;
+}
+a{
+    display: inline-block;
+    vertical-align: middle;
+    color: blue;
+}
+.header{
+    text-align: center;
+    width: 970px;
+}
