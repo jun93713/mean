@@ -2,20 +2,7 @@ var pigs = require('../controllers/pigs.js');
 
 module.exports = function (app) {
     // Root Request
-
-
-
-
-
-
     app.get('/', pigs.findall);
-
-
-
-
-
-
-
 
     app.get('/pigs/new', function(req, res) {
         res.render('new');

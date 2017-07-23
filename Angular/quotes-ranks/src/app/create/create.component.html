@@ -6,7 +6,8 @@
               #content="ngModel"
               minlength="4"
               required></textarea>
-    <p>Author <input type="text" name="author" minlength="1" required [(ngModel)]="quote.author" #author="ngModel"> <input type="submit" value="Add Quote"  [disabled]="!formData.valid"></p>
+    <p>Author <input type="text" name="author" minlength="1" required [(ngModel)]="quote.author" #author="ngModel">
+      <input type="submit" value="Add Quote"  [disabled]="!formData.valid"></p>
 
   </form>
   <div class="validation">

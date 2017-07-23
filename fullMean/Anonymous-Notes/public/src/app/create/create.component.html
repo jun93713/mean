@@ -1,0 +1,6 @@
+<div>
+  <form #formData="ngForm" (submit)="onSubmit()">
+    Note:<input type="text" name="note" [(ngModel)]="note.note" required minlength="3">
+    <button type="submit" [disabled]="!formData.valid">Add Note</button>
+  </form>
+</div>

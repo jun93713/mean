@@ -9,6 +9,7 @@ export class PowerComponent implements OnInit {
 
   powerlevel = null;
   power = 0;
+
   constructor() { }
 
   ngOnInit() {

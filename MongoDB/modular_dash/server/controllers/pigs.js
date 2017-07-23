@@ -3,10 +3,6 @@ var Pig = mongoose.model('Pig');
 
 module.exports = {
     // 'get's
-
-
-
-
     findall: function(req, res) {
         Pig.find({}).exec(function (err, pigs) {
             if (err){
@@ -17,13 +13,6 @@ module.exports = {
             }
         });
     },
-
-
-
-
-
-
-
 
     findone: function (req, res, template) {
         Pig.findOne({_id: req.params.id}, function(err, pig) {
