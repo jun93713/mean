@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Player Name</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let player of players; let i = index">
+    <td>{{player.name}}</td>
+    <td>
+      <button [ngClass]="{'playing': player.gameone == 'Playing'}" (click)="updatePlaying(player._id, i)">Playing</button>
+      <button [ngClass]="{'notplaying': player.gameone == 'Not Playing'}" (click)="updateNotPlaying(player._id, i)">Not Playing</button>
+      <button [ngClass]="{'undecided': player.gameone == 'Undecided'}" (click)="updateUndecided(player._id, i)">Undecided</button>
+    </td>
+  </tr>
+</table>

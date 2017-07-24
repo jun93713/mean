@@ -1,0 +1,13 @@
+
+<table>
+  <tr>
+    <th>Player Name</th>
+    <th>Preferred Position</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let player of players; let i = index">
+    <td>{{player.name}}</td>
+    <td>{{player.position}}</td>
+    <td><button (click)="removePlayer(player._id, i)">DELETE</button></td>
+  </tr>
+</table>
